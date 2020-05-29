@@ -1,9 +1,18 @@
 {% extends 'base.html'%}
 {%block content%}
   <h1>About</h1>
+  <h3>{{ title|capfirst|title }}</h3>
   <p>This is a template</p>
+
+  <!-- renders text  -->
+  {{my_html | safe}}
+  <!-- make text slug -->
+  {{my_html|slugify}}
+  <!-- removes text -->
+  {{my_html|striptags}}
+
   <p>
-    {{ my_text}},
+    {{ my_html| striptags}},
     {{ my_number}},
     {{ my_list}}
   </p>
