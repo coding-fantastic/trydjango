@@ -10,7 +10,8 @@ def product_create_view(request):
         my_form = RawProductForm(request.POST)
         if my_form.is_valid():
             print(my_form.cleaned_data)
-            
+            # two stars will turn into argument that we are going to pass in the form
+            Product.objects.create(**my_form.cleaned_data)
         else:
             print(my_form.errors)
     context = {
